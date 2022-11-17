@@ -11,12 +11,7 @@ print('✔ board ready!')
 def handle_read_write(*data):
     print(data)
 
-    datasToWrite = []
-
-    datasToWrite.append(19)
-    datasToWrite.append(0)
-    datasToWrite.append(15)
-    datasToWrite.append(10)
+    datasToWrite = [19, 0, 15, 10]
 
     rawV = 0
 

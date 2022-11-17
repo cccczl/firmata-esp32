@@ -16,18 +16,11 @@ board.add_cmd_handler(0x02, handle_write)
 
 
 def writePwmValue(pin, value):
-    datasToWrite = []
-
-    datasToWrite.append(pin)
-    datasToWrite.append(0)
-    datasToWrite.append(15)
-    datasToWrite.append(10)
+    datasToWrite = [pin, 0, 15, 10]
 
     v = divmod(value, 127)
 
-    for i in range(1, v[0]):
-        datasToWrite.append(127)
-
+    datasToWrite.extend(127 for _ in range(1, v[0]))
     if (v[0] >= 1):
         datasToWrite.append(v[1])
     else:
